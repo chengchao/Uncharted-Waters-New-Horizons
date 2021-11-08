@@ -179,5 +179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 160
-  stepSize: 1
+  stepSize: 16
   movePoint: {fileID: 7786744370268281666}
+  portMapLoader: {fileID: 0}
