@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class PortDataLoader
 {
-    public static PortData Load(String data)
+    public static PortData Load()
     {
-        var rawPortData = RawPortData.FromJson(data);
+        var data = Resources.Load<TextAsset>("parsable_data");
+        var rawPortData = RawPortData.FromJson(data.ToString());
         var portData = PortData.FromRawPortData(rawPortData);
         return portData;
     }
@@ -57,7 +58,7 @@ public class PortData
             ports[rawPort.id] = port;
         }
 
-        Dictionary<String, Tileset> tilesets = new Dictionary<string, Tileset>();
+        Dictionary<string, Tileset> tilesets = new Dictionary<string, Tileset>();
         foreach (RawPortData.Tileset rawTileset in rawPortData.tilesets)
         {
             Tileset tileset = new Tileset();
@@ -115,14 +116,14 @@ public class PortData
 
     public class Port
     {
-        public String name;
+        public string name;
         public int x, y, economy, industry;
         public int[] allegiances;
         public int regionId;
         public ItemShop itemShop;
         public int economyId;
         public int industryId;
-        public Dictionary<String, Building> buildings;
+        public Dictionary<string, Building> buildings;
         public int tileset;
 
         public class ItemShop
@@ -138,7 +139,7 @@ public class PortData
 
     public class Tileset
     {
-        public Dictionary<String, CollisionIndex> collisionIndices;
+        public Dictionary<string, CollisionIndex> collisionIndices;
     }
 
     public class CollisionIndex
@@ -166,8 +167,8 @@ public class PortData
 
     public class Building
     {
-        public String name;
-        public String[] menu;
+        public string name;
+        public string[] menu;
     }
 }
 
@@ -178,10 +179,10 @@ public class RawPortData
     public Tileset[] tilesets;
     public Character[] characters;
     public Building[] buildings;
-    public String[] regions;
-    public String[] markets;
+    public string[] regions;
+    public string[] markets;
 
-    public static RawPortData FromJson(String json)
+    public static RawPortData FromJson(string json)
     {
         return JsonUtility.FromJson<RawPortData>(json);
     }
@@ -189,7 +190,7 @@ public class RawPortData
     [System.Serializable]
     public class Port
     {
-        public String name;
+        public string name;
         public int x, y, economy, industry;
         public int[] allegiances;
         public int regionId;
@@ -198,7 +199,7 @@ public class RawPortData
         public int industryId;
         public Building[] buildings;
         public int tileset;
-        public String id;
+        public string id;
 
         [System.Serializable]
         public class ItemShop
@@ -210,7 +211,7 @@ public class RawPortData
         public class Building
         {
             public int x, y;
-            public String id;
+            public string id;
         }
     }
 
@@ -218,12 +219,12 @@ public class RawPortData
     public class Tileset
     {
         public CollisionIndex[] collisionIndices;
-        public String id;
+        public string id;
         [System.Serializable]
         public class CollisionIndex
         {
             public int right, left, either;
-            public String id;
+            public string id;
         }
     }
 
@@ -233,7 +234,7 @@ public class RawPortData
         public int startFrame;
         public Spawn spawn;
         public bool isPlayer;
-        public String id;
+        public string id;
     }
 
     [System.Serializable]
@@ -252,8 +253,8 @@ public class RawPortData
     [System.Serializable]
     public class Building
     {
-        public String name;
-        public String[] menu;
-        public String id;
+        public string name;
+        public string[] menu;
+        public string id;
     }
 }

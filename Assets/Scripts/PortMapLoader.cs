@@ -26,13 +26,12 @@ public class PortMapLoader : MonoBehaviour
         foreach (Tile tile in tiles)
         {
             // the name looks like "port-tilesets_0"
-            String tileIndexString = tile.name.Substring("port-tilesets_".Length, tile.name.Length - "port-tilesets_".Length);
+            string tileIndexString = tile.name.Substring("port-tilesets_".Length, tile.name.Length - "port-tilesets_".Length);
             int tileIndex = Int16.Parse(tileIndexString);
             _portTiles[tileIndex] = tile;
         }
 
-        var data = Resources.Load<TextAsset>("parsable_data");
-        Data = PortDataLoader.Load(data.ToString());
+        Data = PortDataLoader.Load();
         _port = Data.ports[portId.ToString()];
 
         var portTilemapsBin = Resources.Load<TextAsset>("port-tilemaps.bin");
