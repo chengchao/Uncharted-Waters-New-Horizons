@@ -6,8 +6,10 @@ using UnityEngine.Tilemaps;
 
 public class PortMapLoader : MonoBehaviour
 {
-    public Tilemap tilemap;
+    [SerializeField] private Tilemap _tilemap;
+    [SerializeField] private int _portId;
 
+    public PortData Data { get; private set; }
     private PortData.Port _port;
 
     private Tile[] _portTiles;
@@ -15,7 +17,7 @@ public class PortMapLoader : MonoBehaviour
     void Start()
     {
         _portTiles = new Tile[6720];
-        Load(1, TimeOfDay.DAY);
+        Load(_portId, TimeOfDay.DAY);
     }
 
     private void Load(int portId, TimeOfDay timesOfDay)
@@ -24,14 +26,13 @@ public class PortMapLoader : MonoBehaviour
         foreach (Tile tile in tiles)
         {
             // the name looks like "port-tilesets_0"
-            String tileIndexString = tile.name.Substring("port-tilesets_".Length, tile.name.Length - "port-tilesets_".Length);
+            string tileIndexString = tile.name.Substring("port-tilesets_".Length, tile.name.Length - "port-tilesets_".Length);
             int tileIndex = Int16.Parse(tileIndexString);
             _portTiles[tileIndex] = tile;
         }
 
-        var data = Resources.Load<TextAsset>("parsable_data");
-        var portData = PortMap.Load(data.ToString());
-        _port = portData.ports[portId.ToString()];
+        Data = PortDataLoader.Load();
+        _port = Data.ports[portId.ToString()];
 
         var portTilemapsBin = Resources.Load<TextAsset>("port-tilemaps.bin");
         byte[] portMap = new byte[9216];
@@ -45,7 +46,7 @@ public class PortMapLoader : MonoBehaviour
         {
             for (int j = 0; j < 96; j++)
             {
-                tilemap.SetTile(new Vector3Int(i, -j, 0), _portTiles[TilesetOffset(timeOfDay) * 240 + Tiles(portMap, i, j)]);
+                _tilemap.SetTile(new Vector3Int(i, -j, 0), _portTiles[TilesetOffset(timeOfDay) * 240 + Tiles(portMap, i, j)]);
             }
         }
     }
