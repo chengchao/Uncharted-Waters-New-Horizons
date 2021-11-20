@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9473a6f9333c40749b845cec160e15d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 6600675396137067695}
-  portId: 2
+  _tilemap: {fileID: 6600675396137067695}
+  _portId: 0
 --- !u!1 &6600675397074306709
 GameObject:
   m_ObjectHideFlags: 0
