@@ -9,7 +9,6 @@ public class PortMapLoader : MonoBehaviour
     [SerializeField] private Tilemap _tilemap;
     [SerializeField] private int _portId;
 
-    public PortData Data { get; private set; }
     private PortData.Port _port;
 
     private Tile[] _portTiles;
@@ -22,21 +21,15 @@ public class PortMapLoader : MonoBehaviour
 
     private void Load(int portId, TimeOfDay timesOfDay)
     {
-        var tiles = Resources.LoadAll<Tile>("Palettes");
-        foreach (Tile tile in tiles)
-        {
-            // the name looks like "port-tilesets_0"
-            string tileIndexString = tile.name.Substring("port-tilesets_".Length, tile.name.Length - "port-tilesets_".Length);
-            int tileIndex = Int16.Parse(tileIndexString);
-            _portTiles[tileIndex] = tile;
-        }
+        var data = DataSystem.Instance.Data;
+        _port = data.ports[portId.ToString()];
 
-        Data = PortDataLoader.Load();
-        _port = Data.ports[portId.ToString()];
+        _portTiles = DataSystem.Instance.PortTiles;
 
-        var portTilemapsBin = Resources.Load<TextAsset>("port-tilemaps.bin");
+        var portTilemapsBin = DataSystem.Instance.PortTilemapsBin;
         byte[] portMap = new byte[9216];
         Array.Copy(portTilemapsBin.bytes, portId * 9216 - 9216, portMap, 0, 9216);
+
         DrawMap(portMap, timesOfDay);
     }
 

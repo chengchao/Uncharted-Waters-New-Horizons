@@ -20,14 +20,14 @@ public class Movement : MonoBehaviour
     public float speed;
     public float stepSize;
     public Transform movePoint;
-    public PortMapLoader portMapLoader;
     private PortMap _portMap;
 
     // Start is called before the first frame update
     void Start()
     {
         movePoint.parent = null;
-        _portMap = new PortMap(portMapLoader.Data);
+        var data = DataSystem.Instance.Data;
+        _portMap = new PortMap(data);
     }
 
     // Update is called once per frame

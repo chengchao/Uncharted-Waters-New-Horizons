@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7786744370268281666}
   - component: {fileID: 7786744370268281669}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MovingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 7786744370859769785}
   - component: {fileID: 7786744370859769782}
   - component: {fileID: 7786744370859769783}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 518157085
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -4256427906160430202, guid: d3aba901a4d01450b88b62fe727ff745, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -181,4 +181,3 @@ MonoBehaviour:
   speed: 160
   stepSize: 16
   movePoint: {fileID: 7786744370268281666}
-  portMapLoader: {fileID: 0}
