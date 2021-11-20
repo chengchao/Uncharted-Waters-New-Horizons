@@ -35,6 +35,7 @@ public class PortMapLoader : MonoBehaviour
 
     private void DrawMap(byte[] portMap, TimeOfDay timeOfDay)
     {
+        Debug.Log($"DrawMap {portMap[0]}, {_portTiles.Length}");
         for (int i = 0; i < 96; i++)
         {
             for (int j = 0; j < 96; j++)

@@ -110,7 +110,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 100
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 7.5, y: 7.5, z: 0}
   m_MaxChunkCount: 16
@@ -126,13 +126,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6600675396137067688}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9473a6f9333c40749b845cec160e15d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tilemap: {fileID: 6600675396137067695}
-  _portId: 0
+  _portId: 1
 --- !u!1 &6600675397074306709
 GameObject:
   m_ObjectHideFlags: 0

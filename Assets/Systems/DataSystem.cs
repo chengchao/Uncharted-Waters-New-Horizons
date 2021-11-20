@@ -10,10 +10,11 @@ public class DataSystem : AbstractSingleton<DataSystem>
     public Tile[] PortTiles { get; private set; }
     public TextAsset PortTilemapsBin { get; private set; }
 
-    void Start()
+    public override void Init()
     {
         Load();
     }
+
     private void Load()
     {
         LoadPortTiles();

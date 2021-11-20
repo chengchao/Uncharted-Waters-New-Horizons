@@ -29,6 +29,7 @@ public abstract class AbstractSingleton<T> : MonoBehaviour where T : Component
         if (_instance == null)
         {
             _instance = this as T;
+            Init();
             DontDestroyOnLoad(this.gameObject);
         }
         else
@@ -36,4 +37,6 @@ public abstract class AbstractSingleton<T> : MonoBehaviour where T : Component
             Destroy(gameObject);
         }
     }
+
+    public abstract void Init();
 }
