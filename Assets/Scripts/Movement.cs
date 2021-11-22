@@ -20,14 +20,11 @@ public class Movement : MonoBehaviour
     public float speed;
     public float stepSize;
     public Transform movePoint;
-    private PortMap _portMap;
 
     // Start is called before the first frame update
     void Start()
     {
         movePoint.parent = null;
-        var data = DataSystem.Instance.Data;
-        _portMap = new PortMap(data);
     }
 
     // Update is called once per frame
@@ -42,18 +39,12 @@ public class Movement : MonoBehaviour
             if (Mathf.Abs(horizontal) == 1f)
             {
                 var newPosition = movePoint.position + new Vector3(stepSize * horizontal, 0f, 0f);
-                if (!_portMap.CollisionAt(newPosition))
-                {
-                    movePoint.position = newPosition;
-                }
+                movePoint.position = newPosition;
             }
             else if (Mathf.Abs(vertical) == 1f)
             {
                 var newPosition = movePoint.position + new Vector3(0f, stepSize * vertical, 0f);
-                if (!_portMap.CollisionAt(newPosition))
-                {
-                    movePoint.position = newPosition;
-                }
+                movePoint.position = newPosition;
             }
         }
     }

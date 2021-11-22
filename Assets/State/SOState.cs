@@ -11,6 +11,7 @@ using System;
 [CreateAssetMenu(fileName = "State", menuName = "ScriptableObject/State")]
 public class SOState : ScriptableObject
 {
+    public int PortID;
     public BUILDING_STATE BuildingState;
     [SerializeField] private GameEvent _enterBuildingEvent;
     [SerializeField] private GameEvent _leaveBuildingEvent;

@@ -190,7 +190,7 @@ MonoBehaviour:
     _gameEvent: {fileID: 11400000, guid: ed3b2225bf3ea954bafbc06321ac8a23, type: 2}
   _leaveBuildingListener:
     _gameEvent: {fileID: 11400000, guid: 93cb75abfd36a954ea8dafae8cf1b940, type: 2}
-  _state: {fileID: 0}
+  _state: {fileID: 11400000, guid: cd86b2cadf38d5547a9e9b220ff86e19, type: 2}
   _port: {fileID: 419851404}
   _building: {fileID: 1109760789}
 --- !u!4 &870428329
