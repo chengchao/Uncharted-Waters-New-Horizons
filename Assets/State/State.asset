@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d720d3996b1f0e49ba26c17b222157d, type: 3}
   m_Name: State
   m_EditorClassIdentifier: 
+  PortID: 1
   BuildingState: 0
   _enterBuildingEvent: {fileID: 11400000, guid: ed3b2225bf3ea954bafbc06321ac8a23, type: 2}
   _leaveBuildingEvent: {fileID: 11400000, guid: 93cb75abfd36a954ea8dafae8cf1b940, type: 2}
